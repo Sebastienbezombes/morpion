@@ -7,17 +7,47 @@ body {
 
 .container {
     display: flex;
-    width: 300px;
-    height: 300px;
-    background: red;
+    justify-content: space-around;
+    align-items: center;
+    width: 310px;
+    height: 310px;
     flex-wrap: wrap;
+    animation: contain 0.2s ease-in-out infinite;
+
 
     .cases {
-        width: 98px;
-        height: 98px;
-        border: 1px solid black;
+        width: 92px;
+        height: 92px;
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
+        box-shadow: 0 0 3px rgba(black, 0.2);
+    }
+}
+.round {
+    color: blue;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Helvetica";
+}
+.cross {
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Helvetica";
+    transition: opacity 3s ease-out;
+}
+
+@keyframes contain {
+    0% {
+      
+            transform: translate(-5px, -5px) rotate(1deg)
+        
+    }
+    100% {
+       
+            transform: translate(5px, 5px) rotate(0deg)
+      
     }
 }
