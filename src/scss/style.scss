@@ -40,7 +40,14 @@ body {
     transition: opacity 3s ease-out;
 }
 
+.textEnd {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 16px;
+    font-family: "Helvetica";
+}
+
 @keyframes contain {
-    0% {transform: translate(-5px, -5px) rotate(1deg); box-shadow: 0 0 20px rgba(black, 0.2);}
+    0% {transform: translate(-5px, -5px) rotate(1deg)}
     100% {transform: translate(5px, 5px) rotate(0deg)}
 }
