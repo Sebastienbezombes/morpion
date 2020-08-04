@@ -28,7 +28,16 @@ const check = (ind, symbol, name) => {
   if ((cases[0].textContent === 'O' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
     || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
     || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'O')) {
+    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'O')
+    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
+    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
+    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
+    || (cases[0].textContent === 'O' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'X')
+    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'X' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
+    || (cases[0].textContent === 'X' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'O')
+    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'X' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
+    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
+    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'X')) {
     endGame(`${'Égalité !'}`)
   }
 }
@@ -114,6 +123,30 @@ for (let i = 0; i < cases.length; i++) {
       // Si les cases 4(3) et 9(8) sont cochées par le joueur et que j'ai coché la case 5(4) alors je coche la case 7(6)
       cases[3].textContent === 'O' && cases[8].textContent === 'O' && cases[4].textContent === 'X' && cases[6].textContent === '' ? check(6, `${'X'}`, `${'cross'}`) : ''
 
+      // Si les cases 5(4) et 6(5) sont cochées par le joueur et que j'ai coché la case 9(8) alors je coche la case 4(3)
+      cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[8].textContent === 'X' && cases[3].textContent === '' && cases[0].textContent === '' && cases[1].textContent === '' && cases[2].textContent === '' && cases[6].textContent === '' && cases[7].textContent === '' ? check(3, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 4(3) et 5(4) sont cochées par le joueur et que j'ai coché la case 3(2) alors je coche la case 6(5)
+      cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[2].textContent === 'X' && cases[5].textContent === '' && cases[0].textContent === '' && cases[1].textContent === '' && cases[6].textContent === '' && cases[7].textContent === '' && cases[8].textContent === '' ? check(5, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 5(4) et 8(7) sont cochées par le joueur et que j'ai coché la case 1(0) alors je coche la case 2(1)
+      cases[4].textContent === 'O' && cases[7].textContent === 'O' && cases[0].textContent === 'X' && cases[1].textContent === '' && cases[2].textContent === '' && cases[3].textContent === '' && cases[5].textContent === '' && cases[6].textContent === '' && cases[8].textContent === '' ? check(1, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 5(4) et 8(7) sont cochées par le joueur et que j'ai coché la case 7(6) alors je coche la case 2(1)
+      cases[4].textContent === 'O' && cases[7].textContent === 'O' && cases[6].textContent === 'X' && cases[1].textContent === '' && cases[0].textContent === '' && cases[2].textContent === '' && cases[3].textContent === '' && cases[5].textContent === '' && cases[8].textContent === '' ? check(1, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 5(4) et 6(5) sont cochées par le joueur et que j'ai coché la case 7(6) alors je coche la case 4(3)
+      cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'X' && cases[3].textContent === '' && cases[0].textContent === '' && cases[1].textContent === '' && cases[2].textContent === '' && cases[7].textContent === '' && cases[8].textContent === '' ? check(3, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 2(1) et 5(4) sont cochées par le joueur et que j'ai coché la case 9(8) alors je coche la case 8(7)
+      cases[1].textContent === 'O' && cases[4].textContent === 'O' && cases[8].textContent === 'X' && cases[7].textContent === '' && cases[0].textContent === '' && cases[2].textContent === '' && cases[3].textContent === '' && cases[5].textContent === '' && cases[6].textContent === '' ? check(7, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 4(3) et 5(4) sont cochées par le joueur et que j'ai coché la case 9(8) alors je coche la case 6(5)
+      cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[8].textContent === 'X' && cases[5].textContent === '' && cases[0].textContent === '' && cases[1].textContent === '' && cases[2].textContent === '' && cases[6].textContent === '' && cases[7].textContent === '' ? check(7, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 5(4) et 7(6) sont cochées par le joueur et que j'ai coché la case 3(2) alors je coche la case 4(3)
+      cases[4].textContent === 'O' && cases[6].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === '' && cases[0].textContent === '' && cases[1].textContent === '' && cases[5].textContent === '' && cases[7].textContent === '' && cases[8].textContent === '' ? check(3, `${'X'}`, `${'cross'}`) : ''
+
       // Côté gauche
       //Si la case 4 (3) et 7 (6) sont cochées par le joueur alors je coche la 1ère case (0)
       cases[3].textContent === 'O' && cases[6].textContent === 'O' && cases[0].textContent === '' ? check(0, `${'X'}`, `${'cross'}`) : ''
@@ -188,17 +221,17 @@ for (let i = 0; i < cases.length; i++) {
       // Si les cases 3 (2), 4 (3) et 8 (7) sont cochées par le joueur et que j'ai coché les cases 5 (4) et 7 (6) alors je coche la 9 (8)
       cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[7].textContent === 'O' && cases[4].textContent === 'X' && cases[6].textContent === 'X' && cases[8].textContent === '' ? check(8, `${'X'}`, `${'cross'}`) : ''
 
-      // Si les cases 2(1), 6(5) et 7(6) sont cochées par le joueur et que j'ai coché les cases 3(2) et 5 (4) alors je coche la première case (0)
-      // cases[1].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[2].textContent === 'X' && cases[4].textContent === 'X' && cases[0].textContent === '' ? cross(0) : ''
-
       // Si les cases 2(1), 4(3) et 9(8) sont cochées par le joueur et que j'ai coché les cases 1(0) et 5 (4) alors je coche la troisième case (2)
-      cases[1].textContent === 'O' && cases[3].textContent === 'O' && cases[8].textContent === 'O' && cases[0].textContent === 'X' && cases[4].textContent === 'X' && cases[2].textContent === '' ? check(2, `${'X'}`, `${'cross'}`) : ''
+      cases[1].textContent === 'O' && cases[3].textContent === 'O' && cases[8].textContent === 'O' && cases[0].textContent === 'X' && cases[4].textContent === 'X' && cases[2].textContent === '' && cases[6].textContent !== 'X' ? check(2, `${'X'}`, `${'cross'}`) : ''
 
       // Si les cases 1(0), 6(5) et 8(7) sont cochées par le joueur et que j'ai coché les cases 5(4) et 9 (8) alors je coche la 7ème case (6)
       cases[0].textContent === 'O' && cases[2].textContent === 'O' && cases[7].textContent === 'O' && cases[4].textContent === 'X' && cases[8].textContent === 'X' && cases[6].textContent === '' ? check(6, `${'X'}`, `${'cross'}`) : ''
 
       // Si les cases 2(1), 7(6) et 9(8) sont cochées par le joueur et que j'ai coché les cases 5(4) et 8 (7) alors je coche la 4ème case (3)
       cases[1].textContent === 'O' && cases[6].textContent === 'O' && cases[8].textContent === 'O' && cases[4].textContent === 'X' && cases[7].textContent === 'X' && cases[3].textContent === '' ? check(3, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 1(0), 6(5) et 8(7) sont cochées par le joueur et que j'ai coché les cases 5(4) et 9(8)' alors je coche la case 7(6)
+      cases[0].textContent === 'O' && cases[5].textContent === 'O' && cases[7].textContent === 'O' && cases[4].textContent === 'X' && cases[8].textContent === 'X' && cases[6].textContent === '' && cases[1].textContent === '' && cases[2].textContent === '' && cases[3].textContent === '' && cases[6].textContent === '' ? check(6, `${'X'}`, `${'cross'}`) : ''
 
       // 4ème tour
       // Si les cases 2(1), 4(3), 7(6) et 9(8) sont cochées par le joueur et que j'ai coché les cases 1(0), 5(4) et 8(7) alors je coche la 3ème case (2)
@@ -213,9 +246,14 @@ for (let i = 0; i < cases.length; i++) {
       // Si les cases 1(0), 6(5), 7(6) et 8(7) sont cochées par le joueur et que j'ai coché les cases 4(3), 5(4) et 9(8) alors je coche la 2ème case (1)
       cases[0].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'O' && cases[3].textContent === 'X' && cases[4].textContent === 'X' && cases[8].textContent === 'X' && cases[1].textContent === '' ? check(1, `${'X'}`, `${'cross'}`) : ''
 
-      // 5ème tour
       // Si les cases 2 (1), 4 (3), 8 (7) et 9 (8) sont cochées par le joueur et que j'ai coché les cases 5 (4), 6 (5) et 7 (6) alors je coche la 1ère case
       cases[1].textContent === 'O' && cases[3].textContent === 'O' && cases[7].textContent === 'O' && cases[8].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[0].textContent === '' ? check(0, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 1(0), 3(2), 8(7) et 9(8) sont cochées par le joueur et que j'ai coché les cases 2(1), 5(4) et 7(6) alors je coche la 6ème case (5)
+      cases[0].textContent === 'O' && cases[2].textContent === 'O' && cases[7].textContent === 'O' && cases[8].textContent === 'O' && cases[1].textContent === 'X' && cases[4].textContent === 'X' && cases[6].textContent === 'X' && cases[5].textContent === '' ? check(5, `${'X'}`, `${'cross'}`) : ''
+
+      // Si les cases 3(2), 5(4), 6(5) et 8(7) sont cochées par le joueur et que j'ai coché les cases 2(1), 7(6) et 9(8) alors je coche la 4ème case (3)
+      cases[2].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[7].textContent === 'O' && cases[1].textContent === 'X' && cases[6].textContent === 'X' && cases[8].textContent === 'X' && cases[3].textContent === '' && cases[0].textContent === '' ? check(5, `${'X'}`, `${'cross'}`) : ''
 
       // Victoire
 
