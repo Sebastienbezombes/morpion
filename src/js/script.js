@@ -1,67 +1,6 @@
+import check from './functions.js'
 const cases = document.querySelectorAll('.cases')
 let player = 1
-const body = document.querySelector('body')
-
-//hover
-cases.forEach(cas => {
-  cas.addEventListener('mouseover', e => {
-    if (cas.textContent === '') {
-      e.target.textContent = 'o'
-    }
-  })
-  cas.addEventListener('mouseout', e => {
-    if (cas.textContent === 'o') {
-      e.target.textContent = ''
-    }
-  })
-})
-
-// Check cases and verification results
-const check = (ind, symbol, name) => {
-  cases[ind].textContent = symbol
-  cases[ind].classList.add(name)
-
-  if ((cases[0].textContent === 'O' && cases[1].textContent === 'O' && cases[2].textContent === 'O')
-    || (cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'O')
-    || (cases[6].textContent === 'O' && cases[7].textContent === 'O' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'O' && cases[3].textContent === 'O' && cases[6].textContent === 'O')
-    || (cases[1].textContent === 'O' && cases[4].textContent === 'O' && cases[7].textContent === 'O')
-    || (cases[2].textContent === 'O' && cases[5].textContent === 'O' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'O' && cases[4].textContent === 'O' && cases[8].textContent === 'O')
-    || (cases[2].textContent === 'O' && cases[4].textContent === 'O' && cases[6].textContent === 'O')) {
-    endGame(`${'Bravo, vous avez gagné !'}`)
-  }
-
-  if ((cases[0].textContent === 'O' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'O' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'X' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'X' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'O')
-    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'X' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'O' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'O' && cases[5].textContent === 'X' && cases[6].textContent === 'X' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'O' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'O' && cases[1].textContent === 'X' && cases[2].textContent === 'O' && cases[3].textContent === 'X' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'O' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'X' && cases[1].textContent === 'O' && cases[2].textContent === 'O' && cases[3].textContent === 'O' && cases[4].textContent === 'X' && cases[5].textContent === 'X' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')) {
-    endGame(`${'Égalité !'}`)
-  }
-
-  if ((cases[0].textContent === 'X' && cases[1].textContent === 'X' && cases[2].textContent === 'X')
-    || (cases[3].textContent === 'X' && cases[4].textContent === 'X' && cases[5].textContent === 'X')
-    || (cases[6].textContent === 'X' && cases[7].textContent === 'X' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'X' && cases[3].textContent === 'X' && cases[6].textContent === 'X')
-    || (cases[1].textContent === 'X' && cases[4].textContent === 'X' && cases[7].textContent === 'X')
-    || (cases[2].textContent === 'X' && cases[5].textContent === 'X' && cases[8].textContent === 'X')
-    || (cases[0].textContent === 'X' && cases[4].textContent === 'X' && cases[8].textContent === 'X')
-    || (cases[2].textContent === 'X' && cases[4].textContent === 'X' && cases[6].textContent === 'X')) {
-    endGame(`${'t\'as perdu !!!!!!!!'}`)
-  }
-}
 
 //code
 for (let i = 0; i < cases.length; i++) {
@@ -75,16 +14,12 @@ for (let i = 0; i < cases.length; i++) {
     if (player === 2) {
 
       // tour 1
-      // Si la case 5(4) est coché par le joueur alors je coche la première case
-
       if (cases[4].textContent === 'O' && cases[0].textContent === '' && cases[1].textContent === '' && cases[2].textContent === '' && cases[3].textContent === '' && cases[5].textContent === '' && cases[6].textContent === '' && cases[7].textContent === '' && cases[8].textContent === '') {
         let randomFirst = Math.random() * 4
         if (randomFirst <= 1 && cases[0].textContent === '') { check(0, `${'X'}`, `${'cross'}`) }
         if (randomFirst > 1 && randomFirst <= 2 && cases[2].textContent === '') { check(2, `${'X'}`, `${'cross'}`) }
         if (randomFirst > 2 && randomFirst <= 3 && cases[6].textContent === '') { check(6, `${'X'}`, `${'cross'}`) }
         if (randomFirst > 3 && cases[8].textContent === '') { check(8, `${'X'}`, `${'cross'}`) }
-
-
       }
 
       //centre
@@ -319,13 +254,4 @@ for (let i = 0; i < cases.length; i++) {
 }
 
 // function display results
-const endGame = text => {
-  let h1 = document.createElement('h1')
-  h1.textContent = `${text}`
-  h1.classList.add('textEnd')
-  body.appendChild(h1)
-  setTimeout(() => {
-    for (let i = 0; i <= 8; i++) { cases[i].textContent = '' }
-    h1.textContent = ''
-  }, 3000)
-}
+
