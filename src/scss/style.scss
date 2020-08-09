@@ -13,7 +13,7 @@ body {
     width: 310px;
     height: 310px;
     flex-wrap: wrap;
-    animation: contain 0.2s ease-in-out infinite;
+ //   animation: contain 0.2s ease-in-out infinite;
 
 
     .cases {
@@ -46,8 +46,8 @@ body {
     margin-top: 16px;
     font-family: "Helvetica";
 }
-
+/*
 @keyframes contain {
     0% {transform: translate(-5px, -5px) rotate(1deg)}
     100% {transform: translate(5px, 5px) rotate(0deg)}
-}
+}*/
