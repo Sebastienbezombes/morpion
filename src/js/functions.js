@@ -12,7 +12,7 @@ export default function check(ind, symbol, name) {
         || (cases[2].textContent === 'O' && cases[5].textContent === 'O' && cases[8].textContent === 'O')
         || (cases[0].textContent === 'O' && cases[4].textContent === 'O' && cases[8].textContent === 'O')
         || (cases[2].textContent === 'O' && cases[4].textContent === 'O' && cases[6].textContent === 'O')) {
-        endGame(`${'Bravo, vous avez gagné !'}`)
+        endGame(`${'Bravo, t\'as gagné !'}`)
     }
 
     if ((cases[0].textContent === 'O' && cases[1].textContent === 'O' && cases[2].textContent === 'X' && cases[3].textContent === 'X' && cases[4].textContent === 'X' && cases[5].textContent === 'O' && cases[6].textContent === 'O' && cases[7].textContent === 'X' && cases[8].textContent === 'O')
@@ -53,7 +53,7 @@ const endGame = text => {
     body.appendChild(h1)
     setTimeout(() => {
         for (let i = 0; i <= 8; i++) { cases[i].textContent = '' }
-        h1.textContent = ''
+        h1.remove()
     }, 3000)
 }
 
